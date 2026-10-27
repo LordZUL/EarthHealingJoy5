@@ -16,6 +16,6 @@ public class rotateButton : MonoBehaviour
 
     public void clicked()
     {
-        transform.Rotate(Vector3.forward * 60* Time.deltaTime);
+        transform.Rotate(0f, 0f, 60f);
     }
 }
