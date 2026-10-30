@@ -3,6 +3,7 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     public PlayerController playerController;
+
     //public float maxSlopeAngle = 30f;
     // when hit ground, grounded == true
     private void OnTriggerEnter(Collider other)

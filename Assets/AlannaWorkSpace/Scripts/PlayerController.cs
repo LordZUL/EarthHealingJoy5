@@ -115,6 +115,8 @@ public class PlayerController : MonoBehaviour
     }*/
     void Jump()
     {
+        Debug.Log("Jump pressed. Grounded: " + grounded);
+
         if (lockedDirection == true)
         {
             if (!grounded)
