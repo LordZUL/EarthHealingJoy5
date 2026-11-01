@@ -2886,7 +2886,11 @@ MonoBehaviour:
   speed: 1
   sensitivity: 0.1
   maxForce: 1
+<<<<<<< Updated upstream
   jumpForce: 3
+=======
+  jumpForce: 2
+>>>>>>> Stashed changes
   grounded: 0
   lockedDirection: 0
 --- !u!65 &1438763015
@@ -3883,6 +3887,7 @@ MeshCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 144275010}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
@@ -3904,6 +3909,7 @@ SceneRoots:
   - {fileID: 824847672}
   - {fileID: 1438763010}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 144275010}
 =======
   - {fileID: 663579652}
@@ -3914,4 +3920,6 @@ SceneRoots:
   - {fileID: 154494744}
   - {fileID: 2069192533}
   - {fileID: 1059160521}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
