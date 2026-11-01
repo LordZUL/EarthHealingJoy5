@@ -3,13 +3,13 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public Transform player;
-
-    void Start() { enabled = false; }
+    public bool followX = false;   
 
     void LateUpdate()
     {
         Vector3 p = transform.position;
-        p.x = player.position.x;
-        transform.position = p;
+        if (followX) p.x = player.position.x;   
+        p.z = player.position.z;                
+        transform.position = p;                 
     }
 }
