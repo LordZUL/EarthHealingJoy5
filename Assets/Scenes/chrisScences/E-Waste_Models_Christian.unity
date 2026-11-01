@@ -521,7 +521,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1438763014}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1438763014}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -2883,14 +2883,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: 1438763013}
-  speed: 1
+  speed: 2
   sensitivity: 0.1
   maxForce: 1
-<<<<<<< Updated upstream
+
   jumpForce: 3
-=======
-  jumpForce: 2
->>>>>>> Stashed changes
+
   grounded: 0
   lockedDirection: 0
 --- !u!65 &1438763015
@@ -3908,10 +3906,7 @@ SceneRoots:
   - {fileID: 1472865728}
   - {fileID: 824847672}
   - {fileID: 1438763010}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - {fileID: 144275010}
-=======
   - {fileID: 663579652}
   - {fileID: 768862559}
   - {fileID: 1150353792}
@@ -3920,6 +3915,3 @@ SceneRoots:
   - {fileID: 154494744}
   - {fileID: 2069192533}
   - {fileID: 1059160521}
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes

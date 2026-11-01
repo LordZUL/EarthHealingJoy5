@@ -577,7 +577,7 @@ MonoBehaviour:
   speed: 1
   sensitivity: 0.1
   maxForce: 1
-  jumpForce: 6
+  jumpForce: 2
   grounded: 0
   lockedDirection: 0
 --- !u!65 &813505199
