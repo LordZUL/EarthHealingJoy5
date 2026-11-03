@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowToggle : MonoBehaviour
 {
     public FollowPlayer target;
-    public bool startFollowing;   // tick on the first box, untick on the second
+    public bool startFollowing;   
 
     void OnTriggerEnter(Collider other)
     {
