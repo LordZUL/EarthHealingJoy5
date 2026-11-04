@@ -13,8 +13,30 @@ public class PlayerController : MonoBehaviour
     private Vector2 _inputMove;
     public bool grounded;
     //private float lookRotation;
-
+    [SerializeField] Transform cam;
     public bool lockedDirection;
+    private Vector3 moveDirection;
+
+    void Update()
+    {
+        //camera dir
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+
+        camForward.y = 0;
+        camRight.y = 0;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        //creating relative cam direction 
+        // https://www.youtube.com/watch?v=reWtxGTyN78
+        Vector3 forwardRelative = _inputMove.y * camForward;
+        Vector3 rightRelative = _inputMove.x * camRight;
+
+        moveDirection = forwardRelative + rightRelative;
+        //moveDirection = camForward * _inputMove.y + camRight * _inputMove.x;
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -25,8 +47,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            Jump();
+        }
         //Debug.Log("Player moving!");
-        Jump();
         //JumpVersion2();
         //_direction = new Vector3(_input.x, 0.0f, _input.y);
     }
@@ -53,11 +78,12 @@ public class PlayerController : MonoBehaviour
         // need to have seperate ground check system
 
         Vector3 currentVelocity = rb.linearVelocity;
-        Vector3 targetVelocity = new Vector3(_inputMove.x, 0.0f, _inputMove.y);
-        targetVelocity *= speed;
+        //Vector3 targetVelocity = new Vector3(_inputMove.x, 0.0f, _inputMove.y);
+        Vector3 targetVelocity = moveDirection * speed;
+        //targetVelocity *= speed;
 
         //align direction 
-        targetVelocity = transform.TransformDirection(targetVelocity);
+        //targetVelocity = transform.TransformDirection(targetVelocity);
 
         //calculate force
         Vector3 velocityChange = (targetVelocity - currentVelocity);
@@ -72,7 +98,8 @@ public class PlayerController : MonoBehaviour
         //rb.AddForce(velocityChange, ForceMode.VelocityChange);
         //rb.AddForce(new Vector3(0, forceMagnitude, 0), ForceMode.VelocityChange);
 
-        rb.AddForce(new Vector3(velocityChange.x, 0.0f, velocityChange.z), ForceMode.VelocityChange);
+        //rb.AddForce(new Vector3(velocityChange.x, 0.0f, velocityChange.z), ForceMode.VelocityChange);
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
     /*void MoveVer2()
