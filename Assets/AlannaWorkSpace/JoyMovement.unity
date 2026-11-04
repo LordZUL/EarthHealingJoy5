@@ -445,6 +445,7 @@ MonoBehaviour:
   maxForce: 1
   jumpForce: 6
   grounded: 0
+  cam: {fileID: 0}
   lockedDirection: 0
 --- !u!4 &627239758 stripped
 Transform:
@@ -579,6 +580,7 @@ MonoBehaviour:
   maxForce: 1
   jumpForce: 2
   grounded: 0
+  cam: {fileID: 933488742}
   lockedDirection: 0
 --- !u!65 &813505199
 BoxCollider:
@@ -785,13 +787,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933488739}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: 0.21, z: -0.98}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 3.167, y: 0.52, z: 2.01}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &933488743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1213,7 @@ MonoBehaviour:
   maxForce: 1
   jumpForce: 6
   grounded: 0
+  cam: {fileID: 0}
   lockedDirection: 0
 --- !u!54 &1115359983
 Rigidbody:
