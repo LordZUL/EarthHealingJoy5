@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 //I used this link to make physics based controller (rigidbody) because the unity playercontroller is supposedly bad for physics based stuff https://youtu.be/1LtePgzeqjQ?si=E5nXp3k1kET3WuBu
 //Improvement to rigidbody: https://www.youtube.com/watch?v=z3dequX5g_E&t=13s I updated this code according to suggestions from Semikoder on YouTube
+// Rotation to character: https://www.youtube.com/watch?v=xHoRkZR61JQ 
 // I also didnt lock mouse, because mouse will be used for ui exploration 
 //there is no lookrotation, because camera is fixed third person
 
@@ -14,11 +15,14 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     //private float lookRotation;
     [SerializeField] Transform cam;
+    [SerializeField] private float smoothTime = 0.05f;
+    private float _currentVelocity;
     public bool lockedDirection;
     private Vector3 moveDirection;
 
     void Update()
     {
+        
         //camera dir
         Vector3 camForward = cam.forward;
         Vector3 camRight = cam.right;
@@ -35,6 +39,14 @@ public class PlayerController : MonoBehaviour
         Vector3 rightRelative = _inputMove.x * camRight;
 
         moveDirection = forwardRelative + rightRelative;
+
+        if (_inputMove.sqrMagnitude == 0) return;
+
+
+        // rotation 
+        var _targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetAngle, ref _currentVelocity, smoothTime);
+        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
         //moveDirection = camForward * _inputMove.y + camRight * _inputMove.x;
     }
 
