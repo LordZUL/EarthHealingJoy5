@@ -761,6 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861937996}
   - component: {fileID: 861937995}
+  - component: {fileID: 861937997}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -795,8 +796,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 569649336}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 861937997}
+        m_TargetAssemblyTypeName: PlayerInputRouter, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -811,8 +812,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 569649336}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 861937997}
+        m_TargetAssemblyTypeName: PlayerInputRouter, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -829,6 +830,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7fa1f545-410e-443f-974c-6eb214e484c1
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d42c6bcb-5e91-4333-ac61-b6d921517adf
+    m_ActionName: 'Gameplay/SpecialAbility[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -849,6 +854,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &861937997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861937994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d9820b44acf164c8bbc8bd0d32670f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputRouter
+  activeController: {fileID: 569649336}
 --- !u!1 &933488739
 GameObject:
   m_ObjectHideFlags: 0
