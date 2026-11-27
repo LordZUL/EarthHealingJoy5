@@ -26,7 +26,16 @@ public class DuplicateAbility : MonoBehaviour
         _active = true;
 
         // 1. Spawn the clone
-        Vector3 spawnPos = original.transform.position + original.transform.forward * spawnDistance;
+        Vector3 dir = original.transform.forward;
+        float dist = spawnDistance;
+
+        if (Physics.Raycast(original.transform.position + Vector3.up * 0.5f, dir, out RaycastHit hit, spawnDistance))
+        {
+            dist = hit.distance - 0.5f; // stop short of the wall
+        }
+
+        Vector3 spawnPos = original.transform.position + dir * Mathf.Max(dist, 0f);
+        //Vector3 spawnPos = original.transform.position + original.transform.forward * spawnDistance;
 
         PlayerController clone = Instantiate(
             original,
