@@ -21,7 +21,19 @@ public class PlayerInputRouter : MonoBehaviour
     public void SetActive(PlayerController newController)
     {
         // Stop the old one from sliding with its last stored input
-        if (activeController != null) activeController.ClearInput();
+        if (activeController != null)
+        {
+            activeController.ClearInput();
+            activeController.rb.linearVelocity = Vector3.zero;
+            activeController.rb.isKinematic = true;
+        }
+
         activeController = newController;
+
+        if (activeController != null)
+        {
+            activeController.rb.isKinematic = false;
+        }
+
     }
 }
