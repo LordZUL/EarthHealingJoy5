@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool hotSpot = false;
     public Rigidbody rb;
     public float speed, sensitivity, maxForce, jumpForce;
     private Vector2 _inputMove;
@@ -59,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        //I also set condition only if they are in an environment with hot spot things will happen 
+        if (context.performed && hotSpot ==true)
         {
             Jump();
         }
@@ -114,44 +116,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-    /*void MoveVer2()
-    {
-        //find target velocity 
-        // needs to be updated; you should not set velocity every physics frame because it breaks rigid built in physics, ned to add force.mode.velocity when adding force to rigidbody
-        //need to solve slip
-        // need to have seperate ground check system
-        if (lockedDirection == true)
-        {
-            if (!grounded)
-            {
-                return;
-            }
-        }
-
-        
-
-        Vector3 currentVelocity = rb.linearVelocity;
-        Vector3 targetVelocity = new Vector3(_inputMove.x, 0.0f, _inputMove.y);
-        targetVelocity *= speed;
-
-        //align direction 
-        targetVelocity = transform.TransformDirection(targetVelocity);
-
-        //calculate force
-        Vector3 velocityChange = (targetVelocity - currentVelocity);
-        // right now if you get on slope it doesnt fall
-        //velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
-        velocityChange.y = 0f;
-
-
-        //limit force 
-        velocityChange = Vector3.ClampMagnitude(velocityChange, maxForce);
-
-        //rb.AddForce(velocityChange, ForceMode.VelocityChange);
-        //rb.AddForce(new Vector3(0, forceMagnitude, 0), ForceMode.VelocityChange);
-
-        rb.AddForce(new Vector3(velocityChange.x, 0.0f, velocityChange.z), ForceMode.VelocityChange);
-    }*/
+   
     void Jump()
     {
         Debug.Log("Jump pressed. Grounded: " + grounded);
@@ -170,6 +135,7 @@ public class PlayerController : MonoBehaviour
             jumpForces.y = jumpForce;
         }
         rb.linearVelocity = jumpForces;
+        hotSpot = false;
         //if (rb.linearVelocity.y < 0)
         //{
             //rb.gravityScale = Data.gravityScale * 1.5f;
@@ -200,5 +166,10 @@ public class PlayerController : MonoBehaviour
     public void SetGrounded(bool state)
     {
         grounded = state;
+    }
+
+    public void ClearInput()
+    {
+        _inputMove = Vector2.zero;
     }
 }
