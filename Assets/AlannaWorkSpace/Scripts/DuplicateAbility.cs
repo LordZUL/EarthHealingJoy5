@@ -10,13 +10,15 @@ public class DuplicateAbility : MonoBehaviour
     public float duration = 5f;
     //duplicate object location
     private float spawnDistance = 0.1f;
+    public bool sparks;
 
     private bool _active;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnDuplicate(InputAction.CallbackContext context)
     {
-        if (context.performed && !_active) StartCoroutine(DuplicateRoutine());
+        if (context.performed && !_active && sparks==true) StartCoroutine(DuplicateRoutine());
+        sparks = false;
     }
 
     IEnumerator DuplicateRoutine()
@@ -46,6 +48,7 @@ public class DuplicateAbility : MonoBehaviour
 
         _active = false;
         yield return new WaitForSeconds(duration);
+
         Destroy(clone.gameObject);
 
     }

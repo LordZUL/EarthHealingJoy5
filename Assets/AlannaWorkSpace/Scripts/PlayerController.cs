@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool hotSpot = false;
     public Rigidbody rb;
     public float speed, sensitivity, maxForce, jumpForce;
     private Vector2 _inputMove;
@@ -59,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        //I also set condition only if they are in an environment with hot spot things will happen 
+        if (context.performed && hotSpot ==true)
         {
             Jump();
         }
@@ -133,6 +135,7 @@ public class PlayerController : MonoBehaviour
             jumpForces.y = jumpForce;
         }
         rb.linearVelocity = jumpForces;
+        hotSpot = false;
         //if (rb.linearVelocity.y < 0)
         //{
             //rb.gravityScale = Data.gravityScale * 1.5f;
