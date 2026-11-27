@@ -1433,7 +1433,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 229678266}
-  - component: {fileID: 229678267}
   m_Layer: 0
   m_Name: EnvironmentalTriggers
   m_TagString: Untagged
@@ -1479,19 +1478,6 @@ Transform:
   - {fileID: 1161043977}
   m_Father: {fileID: 1966312066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &229678267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229678265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f3d55c12ad87743acb4bd08f3809f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::setElectricEnvironment
-  duplicateAbility: {fileID: 1385483805}
 --- !u!1001 &237079013
 PrefabInstance:
   m_ObjectHideFlags: 0
