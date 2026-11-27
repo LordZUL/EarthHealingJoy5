@@ -18,7 +18,7 @@ public class DuplicateAbility : MonoBehaviour
     public void OnDuplicate(InputAction.CallbackContext context)
     {
         if (context.performed && !_active && sparks==true) StartCoroutine(DuplicateRoutine());
-        sparks = false;
+        //sparks = false;
     }
 
     IEnumerator DuplicateRoutine()
@@ -47,6 +47,7 @@ public class DuplicateAbility : MonoBehaviour
         original.rb.isKinematic = false;
 
         _active = false;
+        sparks = false;
         yield return new WaitForSeconds(duration);
 
         Destroy(clone.gameObject);
