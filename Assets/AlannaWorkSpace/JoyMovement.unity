@@ -762,6 +762,7 @@ GameObject:
   - component: {fileID: 861937996}
   - component: {fileID: 861937995}
   - component: {fileID: 861937997}
+  - component: {fileID: 861937998}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -831,7 +832,19 @@ MonoBehaviour:
     m_ActionId: 7fa1f545-410e-443f-974c-6eb214e484c1
     m_ActionName: UI/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 861937998}
+        m_TargetAssemblyTypeName: DuplicateAbility, Assembly-CSharp
+        m_MethodName: OnDuplicate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d42c6bcb-5e91-4333-ac61-b6d921517adf
     m_ActionName: 'Gameplay/SpecialAbility[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -867,6 +880,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputRouter
   activeController: {fileID: 569649336}
+--- !u!114 &861937998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861937994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d641902a2034b447a2d40954f497a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  router: {fileID: 861937997}
+  original: {fileID: 569649336}
+  duration: 5
 --- !u!1 &933488739
 GameObject:
   m_ObjectHideFlags: 0
